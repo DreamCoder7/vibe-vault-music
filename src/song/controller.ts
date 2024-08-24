@@ -96,4 +96,17 @@ const deleteSongById = async (
   }
 };
 
-export { createSong, updateSongById, getAllSongs, deleteSongById };
+const getStats = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const stats = await Song.getStatistics();
+    res.status(200).json({
+      status: "SUCCESS",
+      message: "Statistics retrieved successfully.",
+      data: stats,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { createSong, updateSongById, getAllSongs, deleteSongById, getStats };

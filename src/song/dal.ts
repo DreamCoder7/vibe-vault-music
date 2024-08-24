@@ -39,6 +39,18 @@ class Song {
       throw error;
     }
   }
+
+  static async getStatistics() {
+    try {
+      const totalSongs = await SongModel.countDocuments();
+      const totalArtists = await SongModel.distinct("artists").countDocuments();
+      const totalAlbums = await SongModel.distinct("album").countDocuments();
+      const totalGenres = await SongModel.distinct("genre").countDocuments();
+      return { totalSongs, totalArtists, totalAlbums, totalGenres };
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default Song;
