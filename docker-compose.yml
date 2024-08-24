@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  # MongoDb Service
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+
+  # API Service
+  api:
+    build: .
+    ports:
+      - 4000:3000
+    environment:
+      PORT: 3000
+      DB_REMOTE: ${DB_REMOTE}
+      NODE_ENV: ${NODE_ENV}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}
