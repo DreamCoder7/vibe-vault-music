@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 const MONGO_URI = process.env.DB_REMOTE || "";
 
 const connectDB = async () => {
-  console.log(MONGO_URI)
   try {
     await mongoose.connect(MONGO_URI, {});
     console.log("MongoDB Connected...");
