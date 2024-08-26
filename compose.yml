@@ -3,7 +3,7 @@ version: "3"
 services:
   # MongoDb Service
   mongo_db:
-    container_name: db_container
+    container_name: vibe_vault_db
     image: mongo:latest
     restart: always
     volumes:
