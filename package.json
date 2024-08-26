@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/app.js",
-    "dev": "nodemon src/app.ts",
+    "start": "ts-node-dev app.ts",
     "build": "tsc",
+    "dev": "nodemon src/app.ts",
     "lint": "eslint src/**/*.ts"
   },
   "dependencies": {
