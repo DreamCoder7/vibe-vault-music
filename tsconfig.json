@@ -4,11 +4,12 @@
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true, // Skip type checking of declaration files
     "outDir": "./dist",
-    "types": ["node"]
+    "baseUrl": "./",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"] // Explicitly include node types
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }
